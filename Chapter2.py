@@ -1,3 +1,6 @@
+
+#----- 1) IMPORTS  -----
+
 # Import libraries
 import os
 import tarfile
@@ -34,6 +37,34 @@ def load_housing_data(housing_path=HOUSING_PATH):
 
 housing = load_housing_data()
 
+
+#----- 2) INSPECT DATA  -----
+
 # Head shows first N rows of dataframe.
 housing.head()
+
+# Housing is a pandas dataframe with 10 columns and 20640 rows
+type(housing)
+housing.shape
+# Returns the variable types.
+housing.info()
+
+# Return different attributes - (like the $ operator in R)
+housing["ocean_proximity"]
+
+# (Like the table function in R)
+housing["ocean_proximity"].value_counts()
+
+# Provides a table of the numeric variables.
+housing.describe()
+
+%matplotlib inline
+import matplotlib.pyplot as plt
+housing.hist(bins=50, figsize=(20,15))
+plt.show()
+
+
+
+
+
 
